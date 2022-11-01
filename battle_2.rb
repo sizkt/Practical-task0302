@@ -7,9 +7,10 @@ def janken
 	battle_number = FIRST_BATTLE
 	while(true)
 		input_hand = input_number(jankens,output_prompt[battle_number][0])
+		#手を読み込む
 		computer_number = rand(3)
-		if input_hand == 3
-			break
+		if input_hand == 3 
+			break #戦わない場合終了
 		end
 		puts output_prompt[battle_number][1]
 		puts "------------------"
@@ -20,8 +21,9 @@ def janken
 
 		kekka = judge_janken(input_hand,computer_number)
 		if kekka == 0
+			#あいこならあいこルート
 			battle_number = AIKO_BATTLE
-			next
+			next#while を繰り返す
 		end
 		return kekka
 	end
@@ -44,6 +46,7 @@ def attimuite_hoi()
 
 
 end
+
 def input_number(choices,output_prompt)
 	while true
 		puts output_prompt
